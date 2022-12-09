@@ -1,16 +1,16 @@
 ﻿namespace AdventOfCode2022.Day1;
 
-public static class ElfSnackCalorieParser
+public static class Parser
 {
     private static readonly string Splitter = Environment.NewLine;
 
-    public static IEnumerable<IEnumerable<int>> Parse(IEnumerable<string> input)
+    public static IEnumerable<IEnumerable<int>> Parse(IEnumerable<string> integerGroups)
     {
-        return input.Select(ParseElfCalories);
+        return integerGroups.Select(ParseIntegerGroup);
     }
 
-    private static IEnumerable<int> ParseElfCalories(string elf)
+    private static IEnumerable<int> ParseIntegerGroup(string integerGroup)
     {
-        return elf.Split(Splitter).Select(int.Parse);
+        return integerGroup.Split(Splitter).Select(int.Parse);
     }
 }

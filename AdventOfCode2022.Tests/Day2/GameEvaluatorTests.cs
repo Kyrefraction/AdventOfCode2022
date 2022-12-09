@@ -13,7 +13,7 @@ public class GameEvaluatorTests
     }
     
     [Test]
-    public void CalculatesScore()
+    public void Calculates_score()
     {
         var result = _gameEvaluator.CalculatePlayerScore();
         
@@ -23,7 +23,7 @@ public class GameEvaluatorTests
     }
 
     [Test]
-    public void CalculatesScoreWithSecondColumnAsOutcome()
+    public void Calculates_Score_with_second_column_as_outcome()
     {
         var result = _gameEvaluator.CalculatePlayerScoreWithSecondColumnAsOutcome();
         

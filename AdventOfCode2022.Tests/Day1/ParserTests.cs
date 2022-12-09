@@ -53,7 +53,7 @@ public class ParserTests
             }
         };
 
-        var result = ElfSnackCalorieParser.Parse(input);
+        var result = Parser.Parse(input);
         Assert.That(result, Is.EqualTo(parsedInput));
     }
 }

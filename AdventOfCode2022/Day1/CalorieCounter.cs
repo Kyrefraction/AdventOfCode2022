@@ -10,11 +10,11 @@ public class CalorieCounter
     public CalorieCounter(string path)
     {
         var input = FileReader.ExtractInput(path, SplitValue);
-        _parsedInput = ElfSnackCalorieParser.Parse(input);
+        _parsedInput = Parser.Parse(input);
     }
 
     public int CalculateGreatestCalorieSetTotals(int numberOfSets)
     {
-        return IntegerSupersetCalculator.CalculateGreatestSetTotals(_parsedInput, numberOfSets);
+        return IntegerSupersetCalculator.CalculateGreatestFlattenedSetTotals(_parsedInput, numberOfSets);
     }
 }

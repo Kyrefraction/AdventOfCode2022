@@ -4,7 +4,7 @@ namespace AdventOfCode2022.Tests.Day1;
 
 public class IntegerSupersetCalculatorTests
 {
-    private static readonly List<List<int>> FoodCaloriesPerElf = new()
+    private static readonly List<List<int>> IntegerSuperset = new()
     {
         new List<int>
         {
@@ -37,7 +37,7 @@ public class IntegerSupersetCalculatorTests
     [TestCase(3, 45000)]
     public void Calculates_greatest_n_set_totals(int n, int expectedResult)
     {
-        var result = IntegerSupersetCalculator.CalculateGreatestSetTotals(FoodCaloriesPerElf, n);
+        var result = IntegerSupersetCalculator.CalculateGreatestFlattenedSetTotals(IntegerSuperset, n);
         
         Assert.That(result, Is.EqualTo(expectedResult));
     }
