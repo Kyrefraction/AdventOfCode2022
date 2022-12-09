@@ -106,3 +106,4 @@ C:\Workspace\AdventOfCode\AdventOfCode2022\AdventOfCode2022.Tests\obj\Debug\net6
 C:\Workspace\AdventOfCode\AdventOfCode2022\AdventOfCode2022.Tests\obj\Debug\net6.0\AdventOfCode2022.Tests.genruntimeconfig.cache
 C:\Workspace\AdventOfCode\AdventOfCode2022\AdventOfCode2022.Tests\obj\Debug\net6.0\ref\AdventOfCode2022.Tests.dll
 C:\Workspace\AdventOfCode\AdventOfCode2022\AdventOfCode2022.Tests\bin\Debug\net6.0\Day1\Resources\input.txt
+C:\Workspace\AdventOfCode\AdventOfCode2022\AdventOfCode2022.Tests\bin\Debug\net6.0\Day2\Resources\input.txt

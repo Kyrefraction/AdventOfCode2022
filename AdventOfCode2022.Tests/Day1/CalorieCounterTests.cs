@@ -7,7 +7,7 @@ public class CalorieCounterTests
     private CalorieCounter _calorieCounter = null!;
 
     [OneTimeSetUp]
-    public void SetUp()
+    public void OneTimeSetUp()
     {
         _calorieCounter = new CalorieCounter("Day1/Resources/input.txt");
     }
