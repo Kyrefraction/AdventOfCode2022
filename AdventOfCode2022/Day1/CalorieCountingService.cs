@@ -2,12 +2,12 @@
 
 namespace AdventOfCode2022.Day1;
 
-public class CalorieCounter
+public class CalorieCountingService
 {
     private const string SplitValue = "\r\n\r\n";
     private readonly IEnumerable<IEnumerable<int>> _parsedInput;
 
-    public CalorieCounter(string path)
+    public CalorieCountingService(string path)
     {
         var input = FileReader.ExtractInput(path, SplitValue);
         _parsedInput = Parser.Parse(input);

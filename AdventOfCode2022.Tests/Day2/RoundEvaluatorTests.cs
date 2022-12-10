@@ -8,7 +8,7 @@ public class RoundEvaluatorTests
     [TestCase("A", "Y", 8)]
     [TestCase("B", "X", 1)]
     [TestCase("C", "Z", 6)]
-    public void EvaluatesRound(string opponent, string player, int expectedResult)
+    public void Evaluates_round(string opponent, string player, int expectedResult)
     {
         var opponentMove = MoveMapper.Map(opponent);
         var playerMove = MoveMapper.Map(player);
@@ -20,7 +20,7 @@ public class RoundEvaluatorTests
     [TestCase("A", "Y", 4)]
     [TestCase("B", "X", 1)]
     [TestCase("C", "Z", 7)]
-    public void EvaluatesRoundWithPredestinedOutcome(string opponent, string outcome, int expectedResult)
+    public void Evaluates_round_with_predestined_outcome(string opponent, string outcome, int expectedResult)
     {
         var opponentMove = MoveMapper.Map(opponent);
         var outcomeResult = OutcomeMapper.Map(outcome);

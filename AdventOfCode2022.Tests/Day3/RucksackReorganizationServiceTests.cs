@@ -21,4 +21,14 @@ public class RucksackReorganizationServiceTests
         const int expectedResult = 7826;
         Assert.That(result, Is.EqualTo(expectedResult));
     }
+
+    [Test]
+    public void Reassigns_badges()
+    {
+        var result = _rucksackReorganizationService.ReassignBadges();
+        
+        Console.WriteLine($"Reassigned badge value is {result}");
+        const int expectedResult = 2577;
+        Assert.That(result, Is.EqualTo(expectedResult));
+    }
 }

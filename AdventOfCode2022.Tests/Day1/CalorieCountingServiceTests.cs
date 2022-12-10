@@ -2,21 +2,21 @@
 
 namespace AdventOfCode2022.Tests.Day1;
 
-public class CalorieCounterTests
+public class CalorieCountingServiceTests
 {
-    private CalorieCounter _calorieCounter = null!;
+    private CalorieCountingService _calorieCountingService = null!;
 
     [OneTimeSetUp]
     public void OneTimeSetUp()
     {
-        _calorieCounter = new CalorieCounter("Day1/Resources/input.txt");
+        _calorieCountingService = new CalorieCountingService("Day1/Resources/input.txt");
     }
 
     [TestCase(1, 69206)]
     [TestCase(3, 197400)]
     public void Calculates_greatest_n_sets(int n, int expected)
     {
-        var result = _calorieCounter.CalculateGreatestCalorieSetTotals(n);
+        var result = _calorieCountingService.CalculateGreatestCalorieSetTotals(n);
         
         Console.WriteLine($"Highest {n} calorie total was {result}");
         Assert.That(result, Is.EqualTo(expected));
