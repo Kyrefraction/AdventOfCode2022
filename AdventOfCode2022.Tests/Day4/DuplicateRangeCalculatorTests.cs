@@ -4,7 +4,6 @@ namespace AdventOfCode2022.Tests.Day4;
 
 public class DuplicateRangeCalculatorTests
 {
-
     [TestCase(2, 8, 3, 7, true)]
     [TestCase(4, 6, 6, 6, true)]
     [TestCase(2, 4, 6, 8, false)]
