@@ -2,7 +2,7 @@
 
 public static class Parser
 {
-    private static readonly string Splitter = Environment.NewLine;
+    private static readonly string Separator = Environment.NewLine;
 
     public static IEnumerable<IEnumerable<int>> Parse(IEnumerable<string> integerGroups)
     {
@@ -11,6 +11,6 @@ public static class Parser
 
     private static IEnumerable<int> ParseIntegerGroup(string integerGroup)
     {
-        return integerGroup.Split(Splitter).Select(int.Parse);
+        return integerGroup.Split(Separator).Select(int.Parse);
     }
 }
