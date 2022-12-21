@@ -41,6 +41,10 @@
       <EmbeddedResource Include="Day5\Resources\input.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
+      <None Remove="Day6\Resources\input.txt" />
+      <EmbeddedResource Include="Day6\Resources\input.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
     </ItemGroup>
 
 </Project>
