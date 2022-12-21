@@ -16,6 +16,12 @@ public class StackElementMover
         var elementsToMove = _elementStacks[source - 1].PopMany(quantity);
         _elementStacks[destination - 1].PushMany(elementsToMove);
     }
+    
+    public void MoveInChunks(int quantity, int source, int destination)
+    {
+        var elementsToMove = _elementStacks[source - 1].PopChunk(quantity);
+        _elementStacks[destination - 1].PushMany(elementsToMove);
+    }
 
     public List<Stack<string>> GetCurrentElementState()
     {

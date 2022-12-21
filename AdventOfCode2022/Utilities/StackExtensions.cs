@@ -12,6 +12,13 @@ public static class StackExtensions
 
         return result;
     }
+    
+    public static List<T> PopChunk<T>(this Stack<T> stack, int quantity)
+    {
+        var result = PopMany(stack, quantity);
+        result.Reverse();
+        return result;
+    }
 
     public static void PushMany<T>(this Stack<T> stack, List<T> elements)
     {

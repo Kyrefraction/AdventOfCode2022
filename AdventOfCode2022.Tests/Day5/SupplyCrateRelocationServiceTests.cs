@@ -6,8 +6,8 @@ public class SupplyCrateRelocationServiceTests
 {
     private SupplyCrateRelocationService _supplyCrateRelocationService = null!;
 
-    [OneTimeSetUp]
-    public void OneTimeSetUp()
+    [SetUp]
+    public void SetUp()
     {
         _supplyCrateRelocationService = new SupplyCrateRelocationService("Day5/Resources/input.txt");
     }
@@ -17,8 +17,18 @@ public class SupplyCrateRelocationServiceTests
     {
         var result = _supplyCrateRelocationService.Relocate();
         
-        Console.WriteLine($"End state of element stacks is {result}");
+        Console.WriteLine($"End state of element stacks after relocation is {result}");
         const string expectedResult = "BSDMQFLSP";
+        Assert.That(result, Is.EqualTo(expectedResult));
+    }
+
+    [Test]
+    public void Relocates_in_chunks()
+    {
+        var result = _supplyCrateRelocationService.RelocateInChunks();
+        
+        Console.WriteLine($"End state of element stacks after chunked relocation is {result}");
+        const string expectedResult = "PGSQBFLDP";
         Assert.That(result, Is.EqualTo(expectedResult));
     }
 }

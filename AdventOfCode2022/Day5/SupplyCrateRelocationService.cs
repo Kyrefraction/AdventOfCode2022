@@ -17,9 +17,19 @@ public class SupplyCrateRelocationService
 
     public string Relocate()
     {
-        foreach (var moveCommand in _moveCommands)
+        foreach (var (quantity, source, destination) in _moveCommands)
         {
-            _mover.Move(moveCommand.Item1, moveCommand.Item2, moveCommand.Item3);
+            _mover.Move(quantity, source, destination);
+        }
+
+        return ElementStackSkimmer.Skim(_mover.GetCurrentElementState());
+    }
+
+    public string RelocateInChunks()
+    {
+        foreach (var (quantity, source, destination) in _moveCommands)
+        {
+            _mover.MoveInChunks(quantity, source, destination);
         }
 
         return ElementStackSkimmer.Skim(_mover.GetCurrentElementState());
