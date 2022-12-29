@@ -7,6 +7,8 @@ namespace AdventOfCode2022.Day7;
 public class DirectorySizeEvaluationService
 {
     private const int MaximumDirectorySize = 100000;
+    private const int TotalSize = 70000000;
+    private const int RequiredSize = 30000000;
     private readonly Dictionary<string, List<File>> _fileSystem;
 
     public DirectorySizeEvaluationService(string filePath)
@@ -22,6 +24,23 @@ public class DirectorySizeEvaluationService
         return GetDirectorySizes(_fileSystem)
             .Where(directorySize => directorySize <= MaximumDirectorySize)
             .Sum();
+    }
+
+    public int FindSmallestDirectoryOfRequiredSize()
+    {
+        var usedSize = GetUsedSize();
+        var unusedSize = TotalSize - usedSize;
+        var requiredSize = RequiredSize - unusedSize;
+
+        var directoriesAboveRequiredSize = GetDirectorySizes(_fileSystem)
+            .Where(directorySize => directorySize > requiredSize)
+            .OrderBy(x => x);
+        return directoriesAboveRequiredSize.First();
+    }
+
+    private int GetUsedSize()
+    {
+        return _fileSystem.Select(directory => directory.Value.Sum(file => file.Size)).Sum();
     }
 
     private static IEnumerable<int> GetDirectorySizes(Dictionary<string, List<File>> fileSystem)

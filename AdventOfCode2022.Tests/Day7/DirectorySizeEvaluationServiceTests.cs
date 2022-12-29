@@ -21,4 +21,14 @@ public class DirectorySizeEvaluationServiceTests
         const int expectedResult = 1583951;
         Assert.That(result, Is.EqualTo(expectedResult));
     }
+
+    [Test]
+    public void Finds_smallest_directory_of_required_size()
+    {
+        var result = _directorySizeEvaluationService.FindSmallestDirectoryOfRequiredSize();
+        
+        Console.WriteLine($"Smallest directory required to provide enough space had a size of {result}");
+        const int expectedResult = 214171;
+        Assert.That(result, Is.EqualTo(expectedResult));
+    }
 }
