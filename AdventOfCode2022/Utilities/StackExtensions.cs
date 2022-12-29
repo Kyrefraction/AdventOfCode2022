@@ -2,7 +2,7 @@
 
 public static class StackExtensions
 {
-    public static List<T> PopMany<T>(this Stack<T> stack, int quantity)
+    public static IEnumerable<T> PopMany<T>(this Stack<T> stack, int quantity)
     {
         var result = new List<T>(quantity);
         while (quantity-- > 0 && stack.Count > 0)
@@ -13,14 +13,13 @@ public static class StackExtensions
         return result;
     }
     
-    public static List<T> PopChunk<T>(this Stack<T> stack, int quantity)
+    public static IEnumerable<T> PopChunk<T>(this Stack<T> stack, int quantity)
     {
         var result = PopMany(stack, quantity);
-        result.Reverse();
-        return result;
+        return result.Reverse();
     }
 
-    public static void PushMany<T>(this Stack<T> stack, List<T> elements)
+    public static void PushMany<T>(this Stack<T> stack, IEnumerable<T> elements)
     {
         foreach (var element in elements)
         {
