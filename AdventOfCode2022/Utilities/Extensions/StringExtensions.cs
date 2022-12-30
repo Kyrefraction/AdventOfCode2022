@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode2022.Utilities;
+﻿namespace AdventOfCode2022.Utilities.Extensions;
 
 public static class StringExtensions
 {
