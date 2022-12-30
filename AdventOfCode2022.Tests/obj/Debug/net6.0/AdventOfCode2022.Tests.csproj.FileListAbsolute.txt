@@ -113,3 +113,4 @@ C:\Workspace\AdventOfCode\AdventOfCode2022\AdventOfCode2022.Tests\bin\Debug\net6
 C:\Workspace\AdventOfCode\AdventOfCode2022\AdventOfCode2022.Tests\bin\Debug\net6.0\Day6\Resources\input.txt
 C:\Workspace\AdventOfCode\AdventOfCode2022\AdventOfCode2022.Tests\bin\Debug\net6.0\Day7\Resources\input.txt
 C:\Workspace\AdventOfCode\AdventOfCode2022\AdventOfCode2022.Tests\bin\Debug\net6.0\Day8\Resources\input.txt
+C:\Workspace\AdventOfCode\AdventOfCode2022\AdventOfCode2022.Tests\bin\Debug\net6.0\Day9\Resources\input.txt
