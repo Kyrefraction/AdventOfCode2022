@@ -14,6 +14,11 @@ public class TreePatchEvaluationService
 
     public int EvaluateNumberOfVisibleTrees()
     {
-        return TreeVisibilityCalculator.CalculateNumberOfVisibleTrees(_parsedInput);
+        return TreeVisibilityCalculator.Calculate(_parsedInput);
+    }
+
+    public int EvaluateMaximumScenicScore()
+    {
+        return TreeScenicScoresCalculator.Calculate(_parsedInput).Max();
     }
 }

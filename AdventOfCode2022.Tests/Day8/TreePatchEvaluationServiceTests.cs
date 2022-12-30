@@ -21,4 +21,12 @@ public class TreePatchEvaluationServiceTests
         const int expectedResult = 1825;
         Assert.That(result, Is.EqualTo(expectedResult));
     }
+
+    [Test]
+    public void Evaluates_maximum_scenic_score()
+    {
+        var result = _treePatchEvaluationService.EvaluateMaximumScenicScore();
+        
+        Console.WriteLine($"The most scenic tree within the patch has a scenic score of {result}");
+    }
 }

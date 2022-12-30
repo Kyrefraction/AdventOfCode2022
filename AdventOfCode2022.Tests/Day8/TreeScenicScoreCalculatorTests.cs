@@ -1,11 +1,12 @@
 ﻿using AdventOfCode2022.Day8;
+using NUnit.Framework.Constraints;
 
 namespace AdventOfCode2022.Tests.Day8;
 
-public class TreeVisibilityCalculatorTests
+public class TreeScenicScoreCalculatorTests
 {
     [Test]
-    public void Calculates_number_of_visible_trees()
+    public void Calculates()
     {
         var input = new List<List<int>>
         {
@@ -16,8 +17,8 @@ public class TreeVisibilityCalculatorTests
             new() { 3, 5, 3, 9, 0 }
         };
 
-        const int expectedResult = 21;
-        var result = TreeVisibilityCalculator.Calculate(input);
+        var result = TreeScenicScoresCalculator.Calculate(input).Max();
+        const int expectedResult = 8;
         Assert.That(result, Is.EqualTo(expectedResult));
     }
 }

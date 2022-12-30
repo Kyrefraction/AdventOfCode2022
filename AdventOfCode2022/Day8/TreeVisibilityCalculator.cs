@@ -2,7 +2,7 @@
 
 public static class TreeVisibilityCalculator
 {
-    public static int CalculateNumberOfVisibleTrees(List<List<int>> input)
+    public static int Calculate(List<List<int>> input)
     {
         var result = 0;
         
