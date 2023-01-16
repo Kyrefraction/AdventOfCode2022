@@ -4,15 +4,16 @@ namespace AdventOfCode2022.Day5;
 
 public class SupplyCrateRelocationService
 {
+    private readonly string _splitValue = $"{Environment.NewLine}{Environment.NewLine}";
     private readonly StackElementMover _mover;
     private readonly List<(int, int, int)> _moveCommands;
 
     public SupplyCrateRelocationService(string filePath)
     {
-        var input = FileReader.ExtractInput(filePath, "\r\n\r\n").ToList();
-        var elementStack = ElementStackParser.Parse(input[0].Split(Environment.NewLine));
+        var input = FileReader.ExtractInput(filePath, _splitValue).ToList();
+        var elementStack = ElementStackParser.Parse(input.First().Split(Environment.NewLine));
         _mover = new StackElementMover(elementStack);
-        _moveCommands = input[1].Split(Environment.NewLine).Select(ElementStackCommandParser.Parse).ToList();
+        _moveCommands = input.Last().Split(Environment.NewLine).Select(ElementStackCommandParser.Parse).ToList();
     }
 
     public string Relocate()

@@ -4,12 +4,12 @@ namespace AdventOfCode2022.Day1;
 
 public class CalorieCountingService
 {
-    private const string SplitValue = "\r\n\r\n";
+    private readonly string _splitValue = $"{Environment.NewLine}{Environment.NewLine}";
     private readonly IEnumerable<IEnumerable<int>> _parsedInput;
 
     public CalorieCountingService(string path)
     {
-        var input = FileReader.ExtractInput(path, SplitValue);
+        var input = FileReader.ExtractInput(path, _splitValue);
         _parsedInput = Parser.Parse(input);
     }
 
