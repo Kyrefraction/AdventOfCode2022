@@ -15,10 +15,20 @@ public class RopeManipulationServiceTests
     [Test]
     public void Counts_unique_tail_locations_after_moving()
     {
-        var result = _ropeManipulationService.Move();
+        var result = _ropeManipulationService.Move(2);
         
         Console.WriteLine($"Number of unique tail locations is: {result}");
         const int expectedResult = 6067;
+        Assert.That(result, Is.EqualTo(expectedResult));
+    }
+    
+    [Test]
+    public void Counts_unique_tail_locations_after_moving_with_ten_knot_rope()
+    {
+        var result = _ropeManipulationService.Move(10);
+        
+        Console.WriteLine($"Number of unique tail locations is: {result}");
+        const int expectedResult = 2471;
         Assert.That(result, Is.EqualTo(expectedResult));
     }
 }

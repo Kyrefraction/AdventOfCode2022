@@ -13,9 +13,9 @@ public class RopeManipulationService
         _parsedInput = RopeMovementCommandParser.Parse(input);
     }
 
-    public int Move()
+    public int Move(int knotQuantity)
     {
-        var rope = new Rope();
+        var rope = new Rope(knotQuantity);
         rope.Move(_parsedInput);
         return rope.GetTailPositionHistory().Count;
     }

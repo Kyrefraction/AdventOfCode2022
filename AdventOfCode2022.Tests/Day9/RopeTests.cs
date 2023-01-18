@@ -8,7 +8,7 @@ public class RopeTests
     [Test]
     public void Moves()
     {
-        var rope = new Rope();
+        var rope = new Rope(2);
         var input = new List<(Direction, int)>
         {
             (Direction.Right, 4),
