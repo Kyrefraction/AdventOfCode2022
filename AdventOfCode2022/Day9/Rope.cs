@@ -5,8 +5,11 @@ namespace AdventOfCode2022.Day9;
 public class Rope
 {
     private static readonly (int x, int y) StartPosition = (0, 0);
+    private static bool IsAdjacent((int x, int y) first, (int x, int y) second) => !(Math.Max(Math.Abs(first.x - second.x), Math.Abs(first.y - second.y)) > 1);
     private readonly HashSet<(int x, int y)> _tailPositionHistory;
     private readonly List<(int x, int y)> _knots;
+    private (int x, int y) Tail() => _knots.Last();
+    private (int x, int y) Head() => _knots.First();
 
     public Rope(int knotQuantity)
     {
@@ -82,8 +85,4 @@ public class Rope
             _knots[index] = (second.x + xDisplacement, second.y + yDisplacement);
         }
     }
-    
-    private static bool IsAdjacent((int x, int y) first, (int x, int y) second) => !(Math.Max(Math.Abs(first.x - second.x), Math.Abs(first.y - second.y)) > 1);
-    private (int x, int y) Tail() => _knots.Last();
-    private (int x, int y) Head() => _knots.First();
 }
