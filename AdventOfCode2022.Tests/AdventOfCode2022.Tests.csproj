@@ -22,39 +22,39 @@
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Include="Day1\Resources\input.txt">
+      <EmbeddedResource Include="Day01\Resources\input.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
       <None Remove="Day2\Resources\input.txt" />
-      <EmbeddedResource Include="Day2\Resources\input.txt">
+      <EmbeddedResource Include="Day02\Resources\input.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
       <None Remove="Day3\Resources\input.txt" />
-      <EmbeddedResource Include="Day3\Resources\input.txt">
+      <EmbeddedResource Include="Day03\Resources\input.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
       <None Remove="Day4\Resources\input.txt" />
-      <EmbeddedResource Include="Day4\Resources\input.txt">
+      <EmbeddedResource Include="Day04\Resources\input.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
       <None Remove="Day5\Resources\input.txt" />
-      <EmbeddedResource Include="Day5\Resources\input.txt">
+      <EmbeddedResource Include="Day05\Resources\input.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
       <None Remove="Day6\Resources\input.txt" />
-      <EmbeddedResource Include="Day6\Resources\input.txt">
+      <EmbeddedResource Include="Day06\Resources\input.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
       <None Remove="Day7\Resources\input.txt" />
-      <EmbeddedResource Include="Day7\Resources\input.txt">
+      <EmbeddedResource Include="Day07\Resources\input.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
       <None Remove="Day8\Resources\input.txt" />
-      <EmbeddedResource Include="Day8\Resources\input.txt">
+      <EmbeddedResource Include="Day08\Resources\input.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
       <None Remove="Day9\Resources\input.txt" />
-      <EmbeddedResource Include="Day9\Resources\input.txt">
+      <EmbeddedResource Include="Day09\Resources\input.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
         <None Remove="Day10\Resources\input.txt" />
