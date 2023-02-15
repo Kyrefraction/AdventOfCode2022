@@ -23,7 +23,7 @@ public class CentralProcessingUnit
             _cycle = result.cycle;
             _register = result.register;
         }
-
+        
         return readings;
     }
 }
