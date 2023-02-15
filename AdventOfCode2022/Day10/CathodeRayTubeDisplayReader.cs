@@ -20,14 +20,16 @@ public class CathodeRayTubeDisplayReader
     public string ReadDisplay()
     {
         var readings = _centralProcessingUnit.Execute(_commands).ToList();
-        
-        for (var cycle = 1; cycle <= readings.Last().cycle; cycle++)
+        foreach (var spritePixels in readings.Select(reading => ConvertRegisterToSprite(reading.register)))
         {
-            var register = readings.FirstOrDefault(reading => reading.cycle == cycle).register;
-            var spritePixels = new List<int> { register - 1, register, register + 1 };
             _cathodeRayTubeDisplay.ExecuteCycle(spritePixels);
         }
 
         return _cathodeRayTubeDisplay.RetrieveDisplay();
+    }
+
+    private static List<int> ConvertRegisterToSprite(int register)
+    {
+        return new List<int> { register - 1, register, register + 1 };
     }
 }
