@@ -11,4 +11,9 @@ public static class ListExtensions
                 .ToList())
             .ToList();
     }
+
+    public static int Product(this IEnumerable<int> list)
+    {
+        return list.Aggregate((elementOne, elementTwo) => elementOne * elementTwo);
+    }
 }
