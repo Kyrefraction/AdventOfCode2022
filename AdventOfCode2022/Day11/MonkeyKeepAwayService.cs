@@ -14,11 +14,15 @@ public class MonkeyKeepAwayService
         _monkeys = MonkeyParser.Parse(file);
     }
 
-    public int CalculateMonkeyBusiness(int numberOfRounds)
+    public long CalculateMonkeyBusiness(int numberOfRounds, long postInspectionWorryDivisor)
     {
+        var leastCommonMultiple = _monkeys
+            .Select(m => m.TestDivider())
+            .Aggregate((f1, f2) => f1 * f2);
+        
         for (var index = 0; index < numberOfRounds; index++)
         {
-            foreach (var thrownItem in _monkeys.Select(monkey => monkey.InspectItems()).SelectMany(thrownItems => thrownItems))
+            foreach (var thrownItem in _monkeys.Select(monkey => monkey.InspectItems(postInspectionWorryDivisor, leastCommonMultiple)).SelectMany(thrownItems => thrownItems))
             {
                 _monkeys[thrownItem.destination].ReceiveItem(thrownItem.worryLevel);
             }

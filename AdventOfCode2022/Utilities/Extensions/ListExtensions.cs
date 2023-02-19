@@ -12,7 +12,7 @@ public static class ListExtensions
             .ToList();
     }
 
-    public static int Product(this IEnumerable<int> list)
+    public static long Product(this IEnumerable<long> list)
     {
         return list.Aggregate((elementOne, elementTwo) => elementOne * elementTwo);
     }

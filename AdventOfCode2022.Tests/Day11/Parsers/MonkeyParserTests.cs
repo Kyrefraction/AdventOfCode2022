@@ -42,10 +42,10 @@ public class MonkeyParserTests
 
         var expectedResult = new List<Monkey>
         {
-            new(0, new List<int> { 79, 98 }, worry => worry * 19, worry => worry % 3 == 0, (2, 3)),
-            new(1, new List<int> { 54, 65, 75, 74 }, worry => worry + 6, worry => worry % 19 == 0, (2, 0)),
-            new(2, new List<int> { 79, 60, 97 }, worry => worry * worry, worry => worry % 13 == 0, (1, 3)),
-            new(3, new List<int> { 74 }, worry => worry + 3, worry => worry % 17 == 0, (0, 1))
+            new(new List<long> { 79, 98 }, worry => worry * 19, 3, (2, 3)),
+            new(new List<long> { 54, 65, 75, 74 }, worry => worry + 6, 19, (2, 0)),
+            new(new List<long> { 79, 60, 97 }, worry => worry * worry, 13, (1, 3)),
+            new(new List<long> { 74 }, worry => worry + 3, 17, (0, 1))
         };
 
         var result = MonkeyParser.Parse(input);

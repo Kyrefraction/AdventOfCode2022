@@ -5,23 +5,23 @@ namespace AdventOfCode2022.Tests.Day11;
 [TestFixture]
 public class MonkeyTests
 {
-    private Monkey _monkey = null!;
-    private const int Position = 0;
-    private static readonly List<int> StartingItems = new() { 79, 98 };
-    private static int Operation(int worry) => worry * 19;
-    private static bool Test(int worry) => worry % 23 == 0;
+    private const long PostInspectionWorryDivisor = 3;
+    private const int Test = 23;
+    private static readonly List<long> StartingItems = new() { 79, 98 };
     private static readonly (int, int) Destination = (2, 3);
+    private Monkey _monkey = null!;
+    private static long Operation(long worry) => worry * 19;
     
     [SetUp]
     public void SetUp()
     {
-        _monkey = new Monkey(Position, StartingItems, Operation, Test, Destination);
+        _monkey = new Monkey(StartingItems, Operation, Test, Destination);
     }
     
     [Test]
     public void InspectsItems()
     {
-        var result = _monkey.InspectItems();
+        var result = _monkey.InspectItems(PostInspectionWorryDivisor, 7742);
         var expectedResult = new List<(int, int)>
         {
             (500, 3),

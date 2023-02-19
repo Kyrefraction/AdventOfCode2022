@@ -33,7 +33,7 @@ public static class ElementStackParser
         return int.Parse(Math.Ceiling((lineIndex - (decimal)LengthOfElements) / CharactersBetweenElements).ToString(CultureInfo.InvariantCulture));
     }
 
-    private static int GetNumberOfElementsInLongestLine(IEnumerable<string> input)
+    private static int GetNumberOfElementsIndecimalestLine(IEnumerable<string> input)
     {
         return GetListIndex(input.Max(line => line.Length));
     }
@@ -41,7 +41,7 @@ public static class ElementStackParser
     private static List<Stack<string>> InitializeElementStacks(string[] input)
     {
         var elementStacks = new List<Stack<string>>();
-        for (var index = 0; index < GetNumberOfElementsInLongestLine(input); index++)
+        for (var index = 0; index < GetNumberOfElementsIndecimalestLine(input); index++)
         {
             elementStacks.Add(new Stack<string>());
         }

@@ -10,10 +10,9 @@ public class MonkeyTestParserTests
     {
         const string input = "  Test: divisible by 23";
 
-        var expectedResult = new Func<int, bool>(worry => worry % 23 == 0);
+        const int expectedResult = 23;
         var result = MonkeyTestParser.Parse(input);
         
-        const int testValue = 6;
-        Assert.That(result(testValue), Is.EqualTo(expectedResult(testValue)));
+        Assert.That(result, Is.EqualTo(expectedResult));
     }
 }

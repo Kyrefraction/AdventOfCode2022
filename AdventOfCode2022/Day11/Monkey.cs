@@ -1,63 +1,57 @@
-using AdventOfCode2022.Utilities.Extensions;
-
 namespace AdventOfCode2022.Day11;
 
 public class Monkey
 {
-    private const decimal PostInspectionWorryDivisor = 3m;
-    private const int DefaultNumberOfInspections = 0;
-    private readonly int _position;
-    private List<int> _items;
-    private readonly Func<int, int> _operation;
-    private readonly Func<int, bool> _test;
+    private const long DefaultNumberOfInspections = 0;
+    private readonly Func<long, long> _operation;
+    private readonly int _testDivider;
     private readonly (int @true, int @false) _destination;
-    private int _numberOfInspections;
-    public Monkey(int position, List<int> items, Func<int, int> operation, Func<int, bool> test, (int @true, int @false) destination)
+    private List<long> _items;
+    private long _numberOfInspections;
+    public Monkey(List<long> items, Func<long, long> operation, int testDivider, (int @true, int @false) destination)
     {
-        _position = position;
         _items = items;
         _operation = operation;
-        _test = test;
+        _testDivider = testDivider;
         _destination = destination;
         _numberOfInspections = DefaultNumberOfInspections;
     }
 
-    public List<(int worryLevel, int destination)> InspectItems()
+    public List<(long worryLevel, int destination)> InspectItems(long postInspectionWorryDivisor, int leastCommonMultiple)
     {
-        var thrownItems = _items.Select(InspectItem).ToList();
-        _items = new List<int>();
+        var thrownItems = _items.Select(item => InspectItem(item, postInspectionWorryDivisor, leastCommonMultiple)).ToList();
+        _items = new List<long>();
         return thrownItems;
     }
 
-    private (int worryLevel, int destination) InspectItem(int item)
+    private (long worryLevel, int destination) InspectItem(long item, long postInspectionWorryDivisor, int leastCommonMultiple)
     {
         var inspectionWorryResult = _operation(item);
         _numberOfInspections++;
-        var postInspectionWorryResult = Math.Floor(inspectionWorryResult / PostInspectionWorryDivisor).ToInt();
+        var postInspectionWorryResult = (long)Math.Floor(inspectionWorryResult / (decimal)postInspectionWorryDivisor) % leastCommonMultiple;
 
-        var testResult = _test(postInspectionWorryResult);
+        var testResult = postInspectionWorryResult % _testDivider == 0;
         var destination = testResult ? _destination.@true : _destination.@false;
         return (postInspectionWorryResult, destination);
     }
 
-    public int NumberOfInspections()
+    public long NumberOfInspections()
     {
         return _numberOfInspections;
     }
 
-    public int Position()
-    {
-        return _position;
-    }
-
-    public List<int> Items()
+    public List<long> Items()
     {
         return _items;
     }
 
-    public void ReceiveItem(int item)
+    public int TestDivider()
+    {
+        return _testDivider;
+    }
+
+    public void ReceiveItem(long item)
     {
         _items.Add(item);
     }
-    
 }

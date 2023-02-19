@@ -10,7 +10,7 @@ public static class MonkeyOperationParser
     private const string AdditionMarker = "+";
     private const string OldMarker = "old";
 
-    public static Func<int, int> Parse(string operationInformation)
+    public static Func<long, long> Parse(string operationInformation)
     {
         var startIndex = operationInformation.IndexOf(OperationMarker, StringComparison.Ordinal) + OperationMarker.Length;
         var operationString = operationInformation.Substring(startIndex, operationInformation.Length - startIndex);
