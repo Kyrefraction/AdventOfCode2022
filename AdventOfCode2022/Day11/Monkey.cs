@@ -17,18 +17,18 @@ public class Monkey
         _numberOfInspections = DefaultNumberOfInspections;
     }
 
-    public List<(long worryLevel, int destination)> InspectItems(long postInspectionWorryDivisor, int leastCommonMultiple)
+    public List<(long worryLevel, int destination)> InspectItems(long postInspectionWorryDivisor, int lowestCommonMultiple)
     {
-        var thrownItems = _items.Select(item => InspectItem(item, postInspectionWorryDivisor, leastCommonMultiple)).ToList();
+        var thrownItems = _items.Select(item => InspectItem(item, postInspectionWorryDivisor, lowestCommonMultiple)).ToList();
         _items = new List<long>();
         return thrownItems;
     }
 
-    private (long worryLevel, int destination) InspectItem(long item, long postInspectionWorryDivisor, int leastCommonMultiple)
+    private (long worryLevel, int destination) InspectItem(long item, long postInspectionWorryDivisor, int lowestCommonMultiple)
     {
         var inspectionWorryResult = _operation(item);
         _numberOfInspections++;
-        var postInspectionWorryResult = (long)Math.Floor(inspectionWorryResult / (decimal)postInspectionWorryDivisor) % leastCommonMultiple;
+        var postInspectionWorryResult = (long)Math.Floor(inspectionWorryResult / (decimal)postInspectionWorryDivisor) % lowestCommonMultiple;
 
         var testResult = postInspectionWorryResult % _testDivider == 0;
         var destination = testResult ? _destination.@true : _destination.@false;

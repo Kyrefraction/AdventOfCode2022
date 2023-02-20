@@ -5,7 +5,7 @@ namespace AdventOfCode2022.Tests.Day11;
 [TestFixture]
 public class MonkeyTests
 {
-    private const long PostInspectionWorryDivisor = 3;
+    private const long PostInspectionWorryDivisor = 1;
     private const int Test = 23;
     private static readonly List<long> StartingItems = new() { 79, 98 };
     private static readonly (int, int) Destination = (2, 3);

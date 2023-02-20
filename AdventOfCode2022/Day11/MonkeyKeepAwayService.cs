@@ -16,13 +16,13 @@ public class MonkeyKeepAwayService
 
     public long CalculateMonkeyBusiness(int numberOfRounds, long postInspectionWorryDivisor)
     {
-        var leastCommonMultiple = _monkeys
+        var lowestCommonMultiple = _monkeys
             .Select(m => m.TestDivider())
             .Aggregate((f1, f2) => f1 * f2);
         
         for (var index = 0; index < numberOfRounds; index++)
         {
-            foreach (var thrownItem in _monkeys.Select(monkey => monkey.InspectItems(postInspectionWorryDivisor, leastCommonMultiple)).SelectMany(thrownItems => thrownItems))
+            foreach (var thrownItem in _monkeys.Select(monkey => monkey.InspectItems(postInspectionWorryDivisor, lowestCommonMultiple)).SelectMany(thrownItems => thrownItems))
             {
                 _monkeys[thrownItem.destination].ReceiveItem(thrownItem.worryLevel);
             }
