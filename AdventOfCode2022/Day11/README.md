@@ -51,11 +51,11 @@ Monkey 2:
 
 - Monkey 0 will inspect 60
 - - 60 + 5 = 65
-- - 5 is not divisible by 3, so send to monkey 2
+- - 65 is not divisible by 3, so send to monkey 2
 
 And so on...
 
-We can see that the worry value of the item is always increasing, over 10,000 rounds we can see how this number will come astronomically high. Lets apply the modulo function and see how it is different.
+We can see that the worry value of the item is always increasing, considering that this example only covers one complete round, over 10,000 rounds we can see how this number will become astronomically high. Lets apply the modulo function and see how different the value is at the end.
 
 #### Example with modulo
 
