@@ -82,4 +82,6 @@ Let's first figure out the lowest common multiple of 2, 3 and 5. It is 30.
 - - 5 is not divisible by 3, so send to monkey 2
 
 Notice how with and without the modulo are identical apart from the actual value that is passed around. 
-We're not passing the exact value anymore, but a lower value that has the exact same divisibility. We can now confidently get the number of inspections without ever worrying about an overflow.
+We're not passing the exact value anymore, but a lower value that has the exact same divisibility.
+The lowest common multiple of all the monkey's divisible test values is guaranteed to be divisible by all monkeys, this is why we use the lowest common multiple in the modulo function.
+We can now confidently get the number of inspections without ever worrying about an overflow.
