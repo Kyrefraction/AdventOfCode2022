@@ -35,11 +35,11 @@ public static class HeightmapParser
         { 'S', 1 },
         { 'E', 26 }
     };
-    public static (HeightMap heightMap, List<Vertex> root, Vertex destination) Parse(List<string> input, char rootCharacter, char destinationCharacter)
+    public static (HeightMap heightMap, Vertex root, List<Vertex> destinations) Parse(List<string> input, char rootCharacter, char destinationCharacter)
     {
         var heights = new int[input.Count, input.First().Length];
-        var roots = new List<Vertex>();
-        var destination = new Vertex((0, 0));
+        var root = new Vertex((0, 0));
+        var destinations = new List<Vertex>();
         for (var xIndex = 0; xIndex < input.Count; xIndex++)
         {
             for (var yIndex = 0; yIndex < input.First().Length; yIndex++)
@@ -47,17 +47,17 @@ public static class HeightmapParser
                 var character = input[xIndex][yIndex];
                 if (character == rootCharacter)
                 {
-                    roots.Add(new Vertex((xIndex, yIndex)));
+                    root = new Vertex((xIndex, yIndex));
 
                 } else if (character == destinationCharacter)
                 {
-                    destination = new Vertex((xIndex, yIndex));
+                    destinations.Add(new Vertex((xIndex, yIndex)));
                 }
                 
                 heights[xIndex, yIndex] = AlphabetDictionary[character];
             }
         }
 
-        return (new HeightMap(heights), roots, destination);
+        return (new HeightMap(heights), root, destinations);
     }
 }

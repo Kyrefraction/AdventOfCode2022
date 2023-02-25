@@ -23,7 +23,7 @@ public record HeightMap(int[,] Heights)
         var vertexHeight = Heights[vertex.Coordinates.x, vertex.Coordinates.y];
         var neighbourVertexHeight = Heights[neighbourVertex.Coordinates.x, neighbourVertex.Coordinates.y];
 
-        return neighbourVertexHeight <= vertexHeight + MaximumAccessibleHeightDifference;
+        return neighbourVertexHeight >= vertexHeight - MaximumAccessibleHeightDifference;
     }
 
     private bool IsOnGrid(Vertex vertex)

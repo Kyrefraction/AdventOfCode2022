@@ -24,8 +24,8 @@ public class MonkeyTests
         var result = _monkey.InspectItems(PostInspectionWorryDivisor, 7742);
         var expectedResult = new List<(int, int)>
         {
-            (500, 3),
-            (620, 3)
+            (1501, 3),
+            (1862, 3)
         };
 
         const int expectedNumberOfInspections = 2;

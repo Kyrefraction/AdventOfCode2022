@@ -23,7 +23,8 @@ public class HeightMapTests
         var expectedResult = new List<Vertex>
         {
             new((2, 0)),
-            new((4, 0))
+            new((4, 0)),
+            new((3, 1))
         };
         
         Assert.That(result, Is.EqualTo(expectedResult));

@@ -5,7 +5,7 @@ namespace AdventOfCode2022.Day12;
 
 public class HeightMapCalculationService
 {
-    private readonly (HeightMap heightMap, List<Vertex> roots, Vertex desination) _input;
+    private readonly (HeightMap heightMap, Vertex root, List<Vertex> desinations) _input;
     public HeightMapCalculationService(string filePath, char root, char destination)
     {
         var input = FileReader.ExtractInput(filePath, Environment.NewLine).ToList();
@@ -14,19 +14,16 @@ public class HeightMapCalculationService
 
     public int FindFewestSteps()
     {
-        var shortestPaths = new List<int>();
-        foreach (var breadthFirstSearch in _input.roots.Select(root => new BreadthFirstSearch(_input.heightMap, root)))
+        var breadthFirstSearch = new BreadthFirstSearch(_input.heightMap, _input.root);
+        while (breadthFirstSearch.HasBranchesToSearch())
         {
-            while (breadthFirstSearch.HasBranchesToSearch())
+            var currentVertex = breadthFirstSearch.Search();
+            if (_input.desinations.Contains(currentVertex))
             {
-                var currentVertex = breadthFirstSearch.Search();
-                if (currentVertex == _input.desination)
-                {
-                    shortestPaths.Add(breadthFirstSearch.GetVertexDistanceFromRoot(currentVertex));
-                }
+                return breadthFirstSearch.GetVertexDistanceFromRoot(currentVertex);
             }
         }
 
-        return shortestPaths.Min();
+        throw new Exception("No path could be found from root to destination");
     }
 }
