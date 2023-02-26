@@ -9,16 +9,6 @@ public record IntegerPacket(int Value) : IPacket
 
     public int Compare(IPacket packet)
     {
-        if (packet is not IntegerPacket right)
-        {
-            return ToListPacket().Compare(packet);
-        }
-        
-        if (Value < right.Value)
-        {
-            return ComparisonResult.Ordered;
-        }
-
-        return Value == right.Value ? ComparisonResult.Equal : ComparisonResult.Unordered;
+        return packet is not IntegerPacket right ? ToListPacket().Compare(packet) : Value.CompareTo(right.Value);
     }
 }

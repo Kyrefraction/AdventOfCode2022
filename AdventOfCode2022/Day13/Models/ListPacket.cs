@@ -19,11 +19,6 @@ public record ListPacket(List<IPacket> Values) : IPacket
             }
         }
 
-        if (Values.Count < right.Values.Count)
-        {
-            return ComparisonResult.Ordered;
-        }
-
-        return Values.Count == right.Values.Count ? ComparisonResult.Equal : ComparisonResult.Unordered;
+        return Values.Count.CompareTo(right.Values.Count);
     }
 }
