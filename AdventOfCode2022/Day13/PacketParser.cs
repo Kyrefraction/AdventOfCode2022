@@ -5,15 +5,21 @@ namespace AdventOfCode2022.Day13;
 
 public static class PacketParser
 {
-    public static List<(IPacket left, IPacket right)> Parse(IEnumerable<string> input)
+    public static List<(IPacket left, IPacket right)> ParsePairs(IEnumerable<string> input)
     {
         return input
             .Select(pairs => pairs.Split(Environment.NewLine))
             .Select(pair => (
                 Parse(pair.First()),
                 Parse(pair.Last())
-                ))
-            .ToList();
+                )
+            ).ToList();
+    }
+
+    public static List<IPacket> ParseList(IEnumerable<string> input)
+    {
+        var lines = input.SelectMany(pairs => pairs.Split(Environment.NewLine));
+        return lines.Select(Parse).ToList();
     }
 
     private static IPacket Parse(string line)

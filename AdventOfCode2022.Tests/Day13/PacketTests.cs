@@ -1,4 +1,3 @@
-using AdventOfCode2022.Day13.Enums;
 using AdventOfCode2022.Day13.Models;
 
 namespace AdventOfCode2022.Tests.Day13;
@@ -7,13 +6,13 @@ namespace AdventOfCode2022.Tests.Day13;
 public class PacketTests
 {
     [TestCaseSource(nameof(TestCaseSource))]
-    public void Compares((IPacket left, IPacket right, ComparisonResult expectedResult) input)
+    public void Compares((IPacket left, IPacket right, int expectedResult) input)
     {
         var result = input.left.Compare(input.right);
         Assert.That(result, Is.EqualTo(input.expectedResult));
     }
 
-    private static IEnumerable<(IPacket, IPacket, ComparisonResult)> TestCaseSource()
+    private static IEnumerable<(IPacket, IPacket, int)> TestCaseSource()
     {
         yield return 
         (

@@ -15,7 +15,17 @@ public class PairOrderServiceTests
         var pairOrderService = new PairOrderService(filePath);
         var result = pairOrderService.FindOrderedIndicesSum();
         
-        Console.WriteLine($"The product of correctly ordered indices is: {result}");
+        Console.WriteLine($"The sum of correctly ordered indices is: {result}");
+        Assert.That(result, Is.EqualTo(expectedResult));
+    }
+
+    [TestCase(TestInput, 140)]
+    public void FindsDecoderKey(string filePath, int expectedResult)
+    {
+        var pairOrderService = new PairOrderService(filePath);
+        var result = pairOrderService.FindDecoderKey();
+        
+        Console.WriteLine($"Decoder key value is: {result}");
         Assert.That(result, Is.EqualTo(expectedResult));
     }
     
