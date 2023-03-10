@@ -2,7 +2,7 @@ namespace AdventOfCode2022.Day14.Models;
 
 public record Cave(string[,] Tiles, (int x, int y) SourceCoordinates)
 {
-    public (int x, int y) CreateSandUnit()
+    public (int x, int y) SpawnSand()
     {
         return DropSand(SourceCoordinates);
     }

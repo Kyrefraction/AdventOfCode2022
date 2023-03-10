@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using AdventOfCode2022.Day14.Models;
 using AdventOfCode2022.Utilities;
 
@@ -5,12 +6,32 @@ namespace AdventOfCode2022.Day14;
 
 public static class CaveGenerator
 {
+    private const int FloorDistance = 2;
     public static Cave Generate(List<List<(int x, int y)>> input, (int x, int y) sourceCoordinates)
     {
         var minX = GetMinX(input);
         var maxX = GetMaxX(input) - minX;
         var maxY = GetMaxY(input);
-        
+
+        return GenerateCaveFromRockFormation(minX, maxX, maxY, input, sourceCoordinates);
+    }
+    
+    public static Cave GenerateWithFloor(List<List<(int x, int y)>> input, (int x, int y) sourceCoordinates)
+    {
+        var maxY = GetMaxY(input) + FloorDistance;
+        const int minX = 0;
+        var maxX = sourceCoordinates.x + maxY;
+
+        var cave = GenerateCaveFromRockFormation(minX, maxX, maxY, input, sourceCoordinates);
+        for (var index = 0; index < maxX; index++)
+        {
+            cave.Tiles[index, maxY - 1] = CaveTile.Rock;
+        }
+        return cave;
+    }
+
+    private static Cave GenerateCaveFromRockFormation(int minX, int maxX, int maxY, List<List<(int x, int y)>> input, (int x, int y) sourceCoordinates)
+    {
         var caveTiles = TwoDimensionalArrayUtilities.InitialiseTwoDimensionalArray(maxX, maxY, CaveTile.Air);
         foreach (var rockFormation in input)
         {

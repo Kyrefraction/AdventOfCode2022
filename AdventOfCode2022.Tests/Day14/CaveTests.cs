@@ -53,7 +53,7 @@ public class CaveTests
             }
         }, (6, 0));
 
-        var result = cave.CreateSandUnit();
+        var result = cave.SpawnSand();
         Console.WriteLine(cave.Tiles.ToDisplayString());
         var expectedResult = (6, 8);
         

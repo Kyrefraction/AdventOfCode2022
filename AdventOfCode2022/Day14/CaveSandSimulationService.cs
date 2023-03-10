@@ -6,30 +6,45 @@ namespace AdventOfCode2022.Day14;
 
 public class CaveSandSimulationService
 {
-    private readonly Cave _cave;
+    private readonly List<List<(int x, int y)>> _rockFormations;
+    private readonly (int x, int y) _sourceCoordinates;
     public CaveSandSimulationService(string filePath, (int, int) sourceCoordinates)
     {
-        var file = FileReader.ExtractInput(filePath, Environment.NewLine);
-        var instructions = RockFormationParser.Parse(file).ToList();
-        _cave = CaveGenerator.Generate(instructions, sourceCoordinates);
+        _rockFormations = RockFormationParser.Parse(FileReader.ExtractInput(filePath, Environment.NewLine)).ToList();
+        _sourceCoordinates = sourceCoordinates;
     }
-
 
     public int CalculateRestingSandCount()
     {
-        var sandRestingCoordinates = new List<(int, int)>();
+        var cave = CaveGenerator.Generate(_rockFormations, _sourceCoordinates);
+        return CalculateRestingSandCount(cave);
+    }
+
+    public int CalculateRestingSandCountWithFloor()
+    {
+        var cave = CaveGenerator.GenerateWithFloor(_rockFormations, _sourceCoordinates);
+        return CalculateRestingSandCount(cave);
+    }
+
+    private int CalculateRestingSandCount(Cave cave)
+    {
+        var restingSandCoordinates = new List<(int, int)>();
 
         try
         {
             while (true)
             {
-                sandRestingCoordinates.Add(_cave.CreateSandUnit());
+                var restingSandCoordinate = cave.SpawnSand();
+                restingSandCoordinates.Add(restingSandCoordinate);
+                if (restingSandCoordinate == _sourceCoordinates)
+                {
+                    return restingSandCoordinates.Count;
+                }
             }
         }
         catch (IndexOutOfRangeException)
         {
-            Console.WriteLine(_cave.Tiles.ToDisplayString());
-            return sandRestingCoordinates.Count;
+            return restingSandCoordinates.Count;
         }
     }
 }
