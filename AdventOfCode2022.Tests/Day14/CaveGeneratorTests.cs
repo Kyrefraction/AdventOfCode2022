@@ -26,7 +26,7 @@ public class CaveGeneratorTests
     {
         var result = CaveGenerator.Generate(_input, _sourceCoordinates);
         Console.WriteLine(result.Tiles.ToDisplayString());
-        Assert.That(result.SourceCoordinates, Is.EqualTo((6, 0)));
+        Assert.That(result.SourceCoordinates, Is.EqualTo((500, 0)));
     }
 
     [Test]
